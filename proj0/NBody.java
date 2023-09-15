@@ -9,9 +9,10 @@ public class NBody {
     public static Planet[] readPlanets(String filename){
         // TODO Not robust enough if we have planet numbers other than 5
         In in = new In(filename);
-        in.readInt(); in.readDouble();
-        Planet[] Planets = new Planet[5];;
-        for(int i = 0; i < 5; i++){
+        int num = in.readInt();
+        double radius = in.readDouble();
+        Planet[] Planets = new Planet[num];;
+        for(int i = 0; i < num; i++){
             Planets[i] = new Planet(in.readDouble(), in.readDouble(), in.readDouble(), in.readDouble(), in.readDouble(), in.readString());
         }
         return Planets;
@@ -22,10 +23,11 @@ public class NBody {
         String filename = args[2];
         double radius = readRadius(filename);
         Planet[] Planets = readPlanets(filename);
+        int num = Planets.length;
 
         // Create an xForces array and yForces array.
-        double[] xForces = new double[5];
-        double[] yForces = new double[5];
+        double[] xForces = new double[num];
+        double[] yForces = new double[num];
 
         StdDraw.enableDoubleBuffering();
         StdDraw.setScale(-radius, radius);
@@ -33,19 +35,19 @@ public class NBody {
         for(double time=0.0; time <= T; time += dt){
             // Calculate the net x and y forces for each Body,
             // storing these in the xForces and yForces arrays respectively.
-            for(int i = 0; i < 5; i++){
+            for(int i = 0; i < num; i++){
                 xForces[i] = Planets[i].calcNetForceExertedByX(Planets);
                 yForces[i] = Planets[i].calcNetForceExertedByY(Planets);
             }
             // After calculating the net forces for every Body, call update on each of the Bodys.
             // This will update each body’s position, velocity, and acceleration.
-            for(int i = 0; i < 5; i++){
+            for(int i = 0; i < num; i++){
                 Planets[i].update(dt, xForces[i], yForces[i]);
             }
             // Draw the background image
             StdDraw.picture(0, 0, "images/starfield.jpg");
             // Draw all of the Body s.
-            for(int i = 0; i < 5; i++){
+            for(int i = 0; i < num; i++){
                 StdDraw.picture(Planets[i].xxPos, Planets[i].yyPos, "images/" + Planets[i].imgFileName);
             }
             StdDraw.show();
