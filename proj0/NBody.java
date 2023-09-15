@@ -6,7 +6,7 @@ public class NBody {
         in.readInt(); // Ignore the first number N
         return in.readDouble();
     }
-    public static Planet[] readBodies(String filename){
+    public static Planet[] readPlanets(String filename){
         // TODO Not robust enough if we have planet numbers other than 5
         In in = new In(filename);
         in.readInt(); in.readDouble();
@@ -21,7 +21,7 @@ public class NBody {
         double dt = Double.parseDouble(args[1]);
         String filename = args[2];
         double radius = readRadius(filename);
-        Planet[] bodies = readBodies(filename);
+        Planet[] bodies = readPlanets(filename);
 
         // Create an xForces array and yForces array.
         double[] xForces = new double[5];
