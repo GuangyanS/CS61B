@@ -59,9 +59,10 @@ public class Planet {
     }
     public void update(double time, double x_force, double y_force) {
         double acce_x = x_force / this.mass, acce_y = y_force / this.mass;
-        double new_xxVel = this.xxVel + time * acce_x, new_yyVel = this.yyVel + time * acce_y;
-        this.xxPos += new_xxVel * time;
-        this.yyPos += new_yyVel * time;
+        this.xxVel = this.xxVel + time * acce_x;
+        this.yyVel = this.yyVel + time * acce_y;
+        this.xxPos += this.xxVel * time;
+        this.yyPos += this.yyVel * time;
     }
     public void draw(){
         StdDraw.picture(xxPos, yyPos, imgFileName);
