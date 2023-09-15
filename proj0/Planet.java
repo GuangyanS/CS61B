@@ -1,7 +1,7 @@
-public class Body {
+public class Planet {
     public double xxPos, yyPos, xxVel, yyVel, mass;
     public String imgFileName;
-    public Body(double xP, double yP, double xV,
+    public Planet(double xP, double yP, double xV,
                 double yV, double m, String img){
         xxPos = xP;
         yyPos = yP;
@@ -10,7 +10,7 @@ public class Body {
         mass = m;
         imgFileName = img;
     }
-    public Body(Body b){
+    public Planet(Planet b){
         this.xxPos = b.xxPos;
         this.yyPos = b.yyPos;
         this.xxVel = b.xxVel;
@@ -18,22 +18,22 @@ public class Body {
         this.mass = b.mass;
         this.imgFileName = b.imgFileName;
     }
-    public double calcDistance(Body b){
+    public double calcDistance(Planet b){
         return Math.sqrt(Math.pow(this.xxPos - b.xxPos, 2) + Math.pow(this.yyPos - b.yyPos, 2));
     }
-    public double calcForceExertedBy(Body b){
+    public double calcForceExertedBy(Planet b){
         double G = 6.67e-11;
         return G * this.mass * b.mass / Math.pow(calcDistance(b), 2);
     }
-    public double calcForceExertedByX(Body b){
+    public double calcForceExertedByX(Planet b){
         return calcForceExertedBy(b) * (b.xxPos - this.xxPos) / calcDistance(b);
     }
-    public double calcForceExertedByY(Body b){
+    public double calcForceExertedByY(Planet b){
         return calcForceExertedBy(b) * (b.yyPos - this.yyPos) / calcDistance(b);
     }
-    public double calcNetForceExertedByX(Body[] bodies){
+    public double calcNetForceExertedByX(Planet[] bodies){
         double result = 0.0;
-        for(Body b:bodies){
+        for(Planet b:bodies){
             if(b.equals(this)){
                 System.out.println("Double Check Your Understanding.");
             }
@@ -43,9 +43,9 @@ public class Body {
         }
         return result;
     }
-    public double calcNetForceExertedByY(Body[] bodies){
+    public double calcNetForceExertedByY(Planet[] bodies){
         double result = 0.0;
-        for(Body b:bodies){
+        for(Planet b:bodies){
             if(b.equals(this)){
                 System.out.println("Double Check Your Understanding.");
             }
