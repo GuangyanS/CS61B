@@ -35,7 +35,8 @@ public class Planet {
         double result = 0.0;
         for(Planet b:bodies){
             if(b.equals(this)){
-                System.out.println("Double Check Your Understanding.");
+                // System.out.println("Double Check Your Understanding.");
+                continue;
             }
             else {
                 result += calcForceExertedByX(b);
