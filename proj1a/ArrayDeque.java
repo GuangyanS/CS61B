@@ -60,7 +60,7 @@ public class ArrayDeque<T> {
         return index + 1;
     }
     /** Inserts X to the front of the list. */
-    private void addFirst(T x) {
+    public void addFirst(T x) {
         if (size == items.length) {
             expand();
         }
@@ -69,7 +69,7 @@ public class ArrayDeque<T> {
         size++;
     }
     /** Inserts X into the back of the list. */
-    private void addLast(T x) {
+    public void addLast(T x) {
         if (size == items.length) {
             expand();
         }
