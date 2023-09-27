@@ -1,6 +1,5 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
-
 /** Tests the ArrayDeque class.
  *  @author Josh Hug
  *  Modified by George Sun
@@ -15,7 +14,7 @@ public class ArrayDequeTest {
 
     @Test
     public void testAddAndSize() {
-        ArrayDeque<Integer> L = new ArrayDeque<Integer> ();
+        ArrayDeque<Integer> L = new ArrayDeque<Integer>();
         L.addLast(99);
         L.addLast(99);
         assertEquals(2, L.size());
@@ -24,7 +23,7 @@ public class ArrayDequeTest {
 
     @Test
     public void testAddAndGetLast() {
-        ArrayDeque<Integer> L = new ArrayDeque<Integer> ();
+        ArrayDeque<Integer> L = new ArrayDeque<Integer>();
         L.addLast(99);
         assertEquals(99, L.getLast().intValue());
         L.addLast(36);
@@ -34,7 +33,7 @@ public class ArrayDequeTest {
 
     @Test
     public void testGet() {
-        ArrayDeque<Integer> L = new ArrayDeque<Integer> ();
+        ArrayDeque<Integer> L = new ArrayDeque<Integer>();
         L.addLast(99);
         assertEquals(99, L.get(0).intValue());
         L.addLast(36);
@@ -45,7 +44,7 @@ public class ArrayDequeTest {
 
     @Test
     public void testRemove() {
-        ArrayDeque<Integer> L = new ArrayDeque<Integer> ();
+        ArrayDeque<Integer> L = new ArrayDeque<Integer>();
         L.addLast(99);
         assertEquals(99, L.get(0).intValue());
         L.addLast(36);
@@ -60,7 +59,7 @@ public class ArrayDequeTest {
     /** Tests insertion of a large number of items.*/
     @Test
     public void testMegaInsert() {
-        ArrayDeque<Integer> L = new ArrayDeque<Integer> ();
+        ArrayDeque<Integer> L = new ArrayDeque<Integer>();
         int N = 1000000;
         for (int i = 0; i < N; i += 1) {
             L.addLast(i);

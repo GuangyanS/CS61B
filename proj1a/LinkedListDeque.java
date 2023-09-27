@@ -24,7 +24,7 @@ public class LinkedListDeque<T> {
     private Node sentinel;
     /** size of the deque. */
     private int size;
-    public LinkedListDeque(){
+    public LinkedListDeque() {
         sentinel = new Node(null, null);
         sentinel.prev = sentinel;
         sentinel.next = sentinel;
@@ -45,31 +45,31 @@ public class LinkedListDeque<T> {
             ptr = ptr.next;
         }
     }
-    public void addFirst(T item){
+    public void addFirst(T item) {
         Node newList = new Node(item, sentinel, sentinel.next);
         sentinel.next.prev = newList;
         sentinel.next = newList;
         size++;
     }
-    public void addLast(T item){
+    public void addLast(T item) {
         Node newList = new Node(item, sentinel.prev, sentinel);
         sentinel.prev.next = newList;
         sentinel.prev = newList;
         size++;
 
     }
-    public T removeFirst(){
-        if (size == 0){
+    public T removeFirst() {
+        if (size == 0) {
             return null;
         }
         T ret = sentinel.next.item;
         sentinel.next.next.prev = sentinel;
         sentinel.next = sentinel.next.next;
-        size --;
+        size--;
         return ret;
     }
-    public T removeLast(){
-        if (size == 0){
+    public T removeLast() {
+        if (size == 0) {
             return null;
         }
         T ret = sentinel.prev.item;
@@ -77,7 +77,7 @@ public class LinkedListDeque<T> {
         sentinel.prev = sentinel.prev.prev;
         return ret;
     }
-    public T get(int index){
+    public T get(int index) {
         if (index >= size) {
             return null;
         }
@@ -87,15 +87,21 @@ public class LinkedListDeque<T> {
         }
         return ptr.item;
     }
-    public T getRecursive(Node start, int index){
-        if (index == 0){
+    public T getRecursive(Node start, int index) {
+        if (index == 0) {
             return start.item;
         } else {
             return getRecursive(start.next, index - 1);
         }
     }
+    public T getRecursive(int index) {
+        if (index >= size) {
+            return null;
+        }
+        return getRecursive(sentinel.next, index);
+    }
     /** Returns true if deque is empty, false otherwise. */
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return size == 0;
     }
     /** Returns the number of items in the list. */
