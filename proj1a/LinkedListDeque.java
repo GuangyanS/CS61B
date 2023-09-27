@@ -1,5 +1,5 @@
 public class LinkedListDeque<T> {
-    public class Node {
+    private class Node {
         /** the item stored on this node. */
         private T item;
         /** the Node before this Node. **/
@@ -75,6 +75,7 @@ public class LinkedListDeque<T> {
         T ret = sentinel.prev.item;
         sentinel.prev.prev.next = sentinel;
         sentinel.prev = sentinel.prev.prev;
+        size--;
         return ret;
     }
     public T get(int index) {
@@ -87,7 +88,7 @@ public class LinkedListDeque<T> {
         }
         return ptr.item;
     }
-    public T getRecursive(Node start, int index) {
+    private T getRecursive(Node start, int index) {
         if (index == 0) {
             return start.item;
         } else {

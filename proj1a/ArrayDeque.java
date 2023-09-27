@@ -47,14 +47,14 @@ public class ArrayDeque<T> {
         length /= 2;
     }
     private int minusOne(int index) {
-        if(index == 0) {
+        if (index == 0) {
             return length - 1;
         }
         return index - 1;
     }
     private int plusOne(int index, int len) {
         index %= len;
-        if(index == len - 1) {
+        if (index == len - 1) {
             return 0;
         }
         return index + 1;
