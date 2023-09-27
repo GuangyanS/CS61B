@@ -30,21 +30,6 @@ public class LinkedListDeque<T> {
         sentinel.next = sentinel;
         size = 0;
     }
-
-    public LinkedListDeque(LinkedListDeque other) {
-        sentinel = new Node(null, null);
-        sentinel.prev = sentinel;
-        sentinel.next = sentinel;
-
-        size = other.size;
-
-        // Copy over items
-        Node ptr = other.sentinel.next;
-        while (ptr != other.sentinel) {
-            addLast(ptr.item);
-            ptr = ptr.next;
-        }
-    }
     public void addFirst(T item) {
         Node newList = new Node(item, sentinel, sentinel.next);
         sentinel.next.prev = newList;
