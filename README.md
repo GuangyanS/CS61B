@@ -2,7 +2,6 @@
 
 CS61B Data Structures, Spring 2019 Implemented by George.
 
-- [x] hw 0
 - [] hw 1
 - [] hw 2
 - [] hw 3
@@ -10,6 +9,7 @@ CS61B Data Structures, Spring 2019 Implemented by George.
 - [] hw 5
 - [] hw 6
 - [] hw 7
+
 
 - [x] lab 2
 - [] lab 3
@@ -23,10 +23,11 @@ CS61B Data Structures, Spring 2019 Implemented by George.
 - [] lab 14
 - [] lab 15
 
+
 - [x] proj 0 
 - [x] proj 1a
 - [x] proj 1b
-- [] proj 1gold
+- [x] proj 1gold
 - [] proj 2ab
 - [] proj 2c
 - [] proj 3
