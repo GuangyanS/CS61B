@@ -6,7 +6,7 @@ public class TestArrayDequeGold {
     static ArrayDequeSolution<Integer> gt = new ArrayDequeSolution<>();
     String message = "";
     @Test
-    public void testAddFirst(){
+    public void testAddFirst() {
         for (int i = 0; i < 1000; i++) {
             if (stu.size() == 0) {
                 int rand = StdRandom.uniform(1000);
