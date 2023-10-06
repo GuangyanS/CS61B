@@ -12,8 +12,7 @@ CS61B Data Structures, Spring 2019 Implemented by George.
 
 
 - [x] lab 2
-- [] lab 3
-- [] lab 4
+- [x] lab 3
 - [] lab 5
 - [] lab 9
 - [] lab 10
