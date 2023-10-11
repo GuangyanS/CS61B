@@ -6,8 +6,6 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
     private int first;
     /* Index for the next enqueue. */
     private int last;
-    /* Variable for the fillCount. */
-    private int fillCount;
     /* Array for storing the buffer data. */
     private T[] rb;
 
@@ -40,6 +38,9 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
      */
     @Override
     public T dequeue() {
+        if (isEmpty()) {
+            throw new RuntimeException("Ring buffer underflow");
+        }
         T returnValue = rb[first];
         fillCount--;
         first = (first + 1) % capacity;
@@ -52,6 +53,9 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
      */
     @Override
     public T peek() {
+        if (isEmpty()) {
+            throw new RuntimeException("Ring buffer underflow");
+        }
         return rb[first];
     }
 
@@ -62,7 +66,9 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
             ptr = first;
             count = 0;
         }
-        public boolean hasNext() { return count < fillCount; }
+        public boolean hasNext() {
+            return count < fillCount;
+        }
         public T next() {
             T returnValue = rb[ptr];
             ptr = (ptr + 1) % capacity;
