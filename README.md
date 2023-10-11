@@ -2,7 +2,7 @@
 
 CS61B Data Structures, Spring 2019 Implemented by George.
 
-- [] hw 1
+- [x] hw 1
 - [] hw 2
 - [] hw 3
 - [] hw 4
